@@ -17,9 +17,9 @@ export function HomePage() {
     <div className="min-h-screen">
       <NewsHeader activeCategory={category} onCategoryChange={setCategory} />
       <main className="mx-auto max-w-4xl px-4 pb-20 md:px-6">
-        <section className="py-12 md:py-16">
+        <section className="py-12 md:py-16 animate-dev-up">
           <p className="text-muted-foreground">你好 👋</p>
-          <h1 className="mt-2 text-3xl font-bold text-foreground md:text-4xl">
+          <h1 className="mt-2 text-3xl font-bold md:text-4xl text-gradient">
             今日头条
           </h1>
           <p className="mt-3 max-w-2xl text-muted-foreground">
@@ -43,7 +43,7 @@ export function HomePage() {
           <h2 className="mb-8 text-2xl font-bold text-foreground">
             最新动态
           </h2>
-          <div className="rounded-lg border border-border bg-card p-6 shadow-sm">
+          <div className="rounded-lg border border-border bg-card p-6 shadow-sm card-glass">
             <NewsList newsList={restNews.slice(4)} variant="compact" startIndex={5} />
             {restNews.length <= 4 && (
               <p className="py-8 text-center text-sm text-muted-foreground">
