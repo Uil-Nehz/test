@@ -2,25 +2,49 @@ import { useNavigate } from "react-router-dom";
 import type NewsItem from '@/types/news';
 import { Flame, MessageCircle, Pin } from 'lucide-react';
 
+type CardSize = 'sm' | 'md' | 'lg';
 interface NewsCardProps {
   news: NewsItem;
   index?: number;
   variant?: 'default' | 'hero' | 'compact';
+  size?: CardSize;
 }
 
 function padNum(n: number) {
   return String(n).padStart(2, '0');
 }
 
-export function NewsCard({ news, index = 0, variant = 'default' }: NewsCardProps) {
+export function NewsCard({ news, index = 0, variant = 'default', size = 'md' }: NewsCardProps) {
   const navigate = useNavigate();
   const num = padNum(index + 1);
   const handleClick = () => navigate(`/news/${news.id}`);
 
+  // 尺寸对应样式类
+  const sizeClassMap = {
+    sm: 'p-3',
+    md: 'p-5',
+    lg: 'p-7'
+  };
+  const titleSizeMap = {
+    sm: 'text-base',
+    md: 'text-lg',
+    lg: 'text-xl'
+  };
+  const heroSizeClassMap = {
+    sm: 'p-4',
+    md: 'p-6',
+    lg: 'p-8'
+  };
+  const heroTitleSizeMap = {
+    sm: 'text-lg',
+    md: 'text-xl',
+    lg: 'text-2xl'
+  };
+
   if (variant === 'hero') {
     return (
       <article className="group cursor-pointer" onClick={handleClick}>
-        <div className="block rounded-lg border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md">
+        <div className={`block rounded-lg border border-border bg-card ${heroSizeClassMap[size]} shadow-sm transition-shadow hover:shadow-md card-size-${size}`}>
           <div className="mb-3 flex items-center gap-3">
             <span className="font-mono text-sm font-medium text-primary">{num}</span>
             <span className="rounded bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">
@@ -37,7 +61,7 @@ export function NewsCard({ news, index = 0, variant = 'default' }: NewsCardProps
               </span>
             )}
           </div>
-          <h2 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors md:text-2xl">
+          <h2 className={`font-semibold text-foreground group-hover:text-primary transition-colors ${heroTitleSizeMap[size]}`}>
             {news.title}
           </h2>
           {news.summary && (
@@ -67,10 +91,10 @@ export function NewsCard({ news, index = 0, variant = 'default' }: NewsCardProps
   if (variant === 'compact') {
     return (
       <article className="border-b border-border py-4 last:border-0 cursor-pointer" onClick={handleClick}>
-        <div className="group flex items-start gap-4">
+        <div className="group flex items-start gap-4 card-size-${size}">
           <span className="shrink-0 font-mono text-sm font-medium text-muted-foreground">{num}</span>
           <div className="min-w-0 flex-1">
-            <h3 className="font-medium text-foreground line-clamp-2 group-hover:text-primary transition-colors">
+            <h3 className={`font-medium text-foreground line-clamp-2 group-hover:text-primary transition-colors ${titleSizeMap[size]}`}>
               {news.title}
             </h3>
             <div className="mt-1 flex items-center gap-2 text-xs text-muted-foreground">
@@ -86,7 +110,7 @@ export function NewsCard({ news, index = 0, variant = 'default' }: NewsCardProps
 
   return (
     <article className="cursor-pointer" onClick={handleClick}>
-      <div className="group block rounded-lg border border-border bg-card p-5 shadow-sm transition-shadow hover:shadow-md">
+      <div className={`group block rounded-lg border border-border bg-card ${sizeClassMap[size]} shadow-sm transition-shadow hover:shadow-md card-size-${size}`}>
         <div className="flex items-start gap-4">
           <span className="shrink-0 font-mono text-sm font-medium text-primary">{num}</span>
           <div className="min-w-0 flex-1">
@@ -105,7 +129,7 @@ export function NewsCard({ news, index = 0, variant = 'default' }: NewsCardProps
                 </span>
               )}
             </div>
-            <h3 className="font-semibold text-foreground line-clamp-2 group-hover:text-primary transition-colors">
+            <h3 className={`font-semibold text-foreground line-clamp-2 group-hover:text-primary transition-colors ${titleSizeMap[size]}`}>
               {news.title}
             </h3>
             {news.summary && (

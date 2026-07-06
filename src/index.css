@@ -77,7 +77,7 @@
   animation: dev-fade-up 0.5s ease-out forwards;
 }
 
-/* 霓虹发光按钮工具类 */
+/* 霓虹发光按钮工具类 + 图文尺寸测试工具类 */
 @layer utilities {
   .btn-glow {
     box-shadow: 0 0 16px hsl(var(--ring-glow));
@@ -92,6 +92,21 @@
     background: linear-gradient(90deg, hsl(var(--accent-blue)), hsl(var(--accent-orange)));
     -webkit-background-clip: text;
     background-clip: text;
+  }
+  /* 图文卡片尺寸测试工具类 */
+  .card-size-sm {
+    --card-scale: 0.85;
+    transform: scale(var(--card-scale));
+    transform-origin: top left;
+  }
+  .card-size-md {
+    --card-scale: 1;
+    transform: scale(var(--card-scale));
+  }
+  .card-size-lg {
+    --card-scale: 1.15;
+    transform: scale(var(--card-scale));
+    transform-origin: top left;
   }
 }
 
