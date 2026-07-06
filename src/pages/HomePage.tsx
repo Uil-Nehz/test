@@ -9,12 +9,12 @@ export function HomePage() {
   const filteredNews = useMemo(() => {
     if (category === '推荐') return mockNewsList;
     return mockNewsList.filter((n) => n.category === category);
-  }, [category]);
+  }, [category, mockNewsList]);
 
   const [heroNews, ...restNews] = filteredNews;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[hsl(var(--gradient-start))] to-[hsl(var(--gradient-end))]">
+    <div className="min-h-screen">
       <NewsHeader activeCategory={category} onCategoryChange={setCategory} />
       <main className="mx-auto max-w-4xl px-4 pb-20 md:px-6">
         <section className="py-12 md:py-16">
