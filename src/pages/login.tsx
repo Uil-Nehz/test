@@ -1,13 +1,18 @@
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 export default function LoginPage() {
   const [account, setAccount] = useState("");
   const [password, setPassword] = useState("");
+  const { toast } = useToast();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("登录表单数据：", { account, password });
-    alert("baocuole ")
+    toast({
+      title: "登录成功",
+      description: "欢迎进入系统",
+    });
   };
 
   return (
