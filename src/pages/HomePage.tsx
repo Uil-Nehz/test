@@ -1,14 +1,14 @@
 import { useState, useMemo } from 'react';
 import { NewsHeader, NewsHero, NewsList } from '@/components/news';
-import { MOCK_NEWS } from '@/data/mock-news';
+import { mockNewsList } from '@/data/mock-news';
 import type { NewsCategory } from '@/types/news';
 
 export function HomePage() {
   const [category, setCategory] = useState<NewsCategory>('推荐');
 
   const filteredNews = useMemo(() => {
-    if (category === '推荐') return MOCK_NEWS;
-    return MOCK_NEWS.filter((n) => n.category === category);
+    if (category === '推荐') return mockNewsList;
+    return mockNewsList.filter((n) => n.category === category);
   }, [category]);
 
   const [heroNews, ...restNews] = filteredNews;
