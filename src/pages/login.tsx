@@ -19,7 +19,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[hsl(var(--gradient-start))] to-[hsl(var(--gradient-end))]">
       <div className="w-full max-w-sm p-6 rounded-lg border bg-white shadow-sm">
         <h1 className="text-xl font-bold text-center mb-6">用户登录</h1>
         <form onSubmit={handleLogin} className="space-y-4">

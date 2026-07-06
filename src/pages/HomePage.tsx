@@ -14,7 +14,7 @@ export function HomePage() {
   const [heroNews, ...restNews] = filteredNews;
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-br from-[hsl(var(--gradient-start))] to-[hsl(var(--gradient-end))]">
       <NewsHeader activeCategory={category} onCategoryChange={setCategory} />
       <main className="mx-auto max-w-4xl px-4 pb-20 md:px-6">
         <section className="py-12 md:py-16">

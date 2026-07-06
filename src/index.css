@@ -32,6 +32,9 @@
     --ring: 220 70% 50%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
+    /* 新增渐变背景变量 */
+    --gradient-start: 210 40% 96%;
+    --gradient-end: 230 40% 99%;
   }
 }
 
@@ -44,7 +47,7 @@
   }
   body {
     font-family: var(--font-body);
-    background: hsl(var(--bg));
+    background: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
     color: hsl(var(--fg));
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
