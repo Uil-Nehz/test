@@ -13,10 +13,10 @@
     /* 半透明磨砂卡片 */
     --bg-card: 226 45% 14% / 0.7;
     --bg-card-border: 223 35% 28% / 0.6;
-    /* 文字色系 */
+    /* 文字色系 提升明度保证深色下可见 */
     --fg-white: 0 0% 100%;
-    --fg-muted: 220 20% 72%;
-    --fg-subtle: 222 15% 50%;
+    --fg-muted: 220 20% 82%;
+    --fg-subtle: 222 15% 70%;
     /* 霓虹强调色 */
     --accent-blue: 220 80% 60%;
     --accent-orange: 32 88% 52%;
@@ -34,7 +34,7 @@
     --secondary: 223 40% 18%;
     --secondary-foreground: hsl(var(--fg-white));
     --muted: 224 38% 16%;
-    --muted-foreground: hsl(var(--fg-subtle));
+    --muted-foreground: hsl(var(--fg-muted));
     --border: hsl(var(--bg-card-border));
     --input: 223 42% 16%;
     --ring: hsl(var(--ring-glow));
@@ -62,10 +62,10 @@
   }
 }
 
-/* 入场淡入动画 */
+/* 入场淡入动画 兜底初始不透明 */
 @keyframes dev-fade-up {
   from {
-    opacity: 0;
+    opacity: 0.1;
     transform: translateY(16px);
   }
   to {
@@ -86,11 +86,12 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
+  /* 修复渐变文字：增加白色兜底，避免透明文字完全消失 */
   .text-gradient {
+    color: hsl(var(--fg-white));
     background: linear-gradient(90deg, hsl(var(--accent-blue)), hsl(var(--accent-orange)));
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent;
   }
 }
 

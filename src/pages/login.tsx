@@ -28,7 +28,7 @@ export default function LoginPage() {
             <input
               value={account}
               onChange={(ev) => setAccount(ev.target.value)}
-              className="border border-border px-3 py-2 rounded-md outline-none focus:ring-1 focus:ring-ring bg-input"
+              className="border border-border px-3 py-2 rounded-md outline-none focus:ring-1 focus:ring-ring bg-input text-foreground"
               placeholder="请输入账号"
             />
           </div>
@@ -38,7 +38,7 @@ export default function LoginPage() {
               type="password"
               value={password}
               onChange={(ev) => setPassword(ev.target.value)}
-              className="border border-border px-3 py-2 rounded-md outline-none focus:ring-1 focus:ring-ring bg-input"
+              className="border border-border px-3 py-2 rounded-md outline-none focus:ring-1 focus:ring-ring bg-input text-foreground"
               placeholder="请输入密码"
             />
           </div>

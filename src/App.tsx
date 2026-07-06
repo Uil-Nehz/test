@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Toaster />
-      <Suspense fallback={<div className="flex items-center justify-center min-h-screen">加载中...</div>}>
+      <Suspense fallback={<div className="flex items-center justify-center min-h-screen text-foreground">加载中...</div>}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
