@@ -1,4 +1,4 @@
-export interface NewsItem {
+export default interface NewsItem {
   id: string;
   title: string;
   coverImg: string;
