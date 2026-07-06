@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { mockNewsList } from "@/data/mock-news";
-import { NewsItem } from "@/types/news";
+import type NewsItem from "@/types/news";
 
 export default function NewsDetail() {
   const { id } = useParams();

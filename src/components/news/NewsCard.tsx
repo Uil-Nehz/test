@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import type { NewsItem } from '@/types/news';
+import type NewsItem from '@/types/news';
 import { Flame, MessageCircle, Pin } from 'lucide-react';
 
 interface NewsCardProps {
