@@ -1,81 +1,30 @@
-import type { NewsItem } from '@/types/news';
+import type { NewsItem } from "@/types/news";
 
-/**
- * 模拟新闻数据 - 用于开发与演示
- */
-export const MOCK_NEWS: NewsItem[] = [
+export const mockNewsList: NewsItem[] = [
   {
-    id: '1',
-    title: '人工智能大模型应用加速落地，多行业迎来智能化升级',
-    summary: '随着技术的成熟，AI 大模型正在从实验室走向千行百业，医疗、教育、制造等领域正经历深刻变革。',
-    source: '科技日报',
-    publishTime: '10 分钟前',
-    category: '科技',
-    commentCount: 1280,
-    isTop: true,
+    id: "news_1002",
+    title: "2026年人工智能应用落地场景全面盘点",
+    coverImg: "https://picsum.photos/id/28/900/320",
+    author: "科技专栏编辑",
+    publishTime: "2026-07-07 09:45",
+    category: "AI科技",
+    content: `人工智能技术经过多年迭代，已经从实验室走向各行各业落地场景，今年各类轻量化AI工具大幅降低中小企业使用门槛，生产、办公、服务领域均出现规模化应用案例。
+
+办公场景中，AI文案生成、智能数据整理、自动图表绘制工具普及，有效减少重复性文案工作；工业领域智能质检、设备故障预测系统持续落地，提升生产线稳定性。
+
+行业专家预测，未来一年AI人机协同模式会成为企业标配，从业者需要掌握基础AI工具使用能力，才能适配数字化工作环境。`
   },
   {
-    id: '2',
-    title: '央行发布最新货币政策报告，稳健基调未变',
-    summary: '报告指出将保持流动性合理充裕，支持实体经济高质量发展。',
-    source: '财经频道',
-    publishTime: '25 分钟前',
-    category: '财经',
-    commentCount: 562,
-    isHot: true,
-  },
-  {
-    id: '3',
-    title: '春节档电影票房创新高，观影人次突破历史纪录',
-    summary: '多部优质影片同台竞技，带动电影市场全面复苏。',
-    source: '娱乐快讯',
-    publishTime: '1 小时前',
-    category: '娱乐',
-    commentCount: 3200,
-  },
-  {
-    id: '4',
-    title: '世界游泳锦标赛开幕，中国选手首日斩获三金',
-    summary: '奥运冠军们状态出色，为即将到来的巴黎奥运会预热。',
-    source: '体育频道',
-    publishTime: '2 小时前',
-    category: '体育',
-    commentCount: 890,
-  },
-  {
-    id: '5',
-    title: '联合国气候大会达成新共识，各国承诺加速减排',
-    summary: '与会各方就资金支持与技术转让达成重要协议。',
-    source: '国际新闻',
-    publishTime: '3 小时前',
-    category: '国际',
-    commentCount: 156,
-  },
-  {
-    id: '6',
-    title: '新能源汽车销量持续增长，充电网络加速布局',
-    summary: '政策支持与技术进步共同推动绿色出行普及。',
-    source: '汽车周刊',
-    publishTime: '4 小时前',
-    category: '科技',
-    commentCount: 420,
-  },
-  {
-    id: '7',
-    title: '国产操作系统生态建设取得新进展',
-    summary: '多家软件厂商宣布适配，应用生态逐步完善。',
-    source: '科技观察',
-    publishTime: '5 小时前',
-    category: '科技',
-    commentCount: 890,
-  },
-  {
-    id: '8',
-    title: '文旅消费持续升温，春节假期数据亮眼',
-    summary: '各地景区人气火爆，带动周边产业复苏。',
-    source: '经济参考',
-    publishTime: '6 小时前',
-    category: '财经',
-    commentCount: 234,
-  },
+    id: "news_1001",
+    title: "2026数字媒体行业发展新趋势深度分析",
+    coverImg: "https://picsum.photos/id/36/900/340",
+    author: "行业观察记者",
+    publishTime: "2026-07-07 14:20",
+    category: "媒体资讯",
+    content: `随着短视频、图文自媒体、AI生成内容快速普及，数字媒体行业正在迎来新一轮变革。各大平台持续优化内容分发机制，扶持优质原创图文内容创作者，降低内容发布门槛。
+
+从上半年行业数据来看，轻量化图文资讯阅读量持续上涨，用户更偏好短平快、信息密度高的新闻内容，传统长视频资讯流量逐步分流。平台也推出更多适配移动端的阅读优化功能，提升用户浏览体验。
+
+业内人士分析，未来AI辅助内容创作会成为标配，创作者可借助工具快速完成文案撰写、配图生成，大幅提升内容产出效率，媒体行业的生产模式将迎来全面升级。`
+  }
 ];
