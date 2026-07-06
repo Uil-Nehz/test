@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import type { NewsItem } from '@/types/news';
 import { Flame, MessageCircle, Pin } from 'lucide-react';
 
@@ -12,12 +13,14 @@ function padNum(n: number) {
 }
 
 export function NewsCard({ news, index = 0, variant = 'default' }: NewsCardProps) {
+  const navigate = useNavigate();
   const num = padNum(index + 1);
+  const handleClick = () => navigate(`/news/${news.id}`);
 
   if (variant === 'hero') {
     return (
-      <article className="group animate-dev-up cursor-pointer" style={{ opacity: 0 }}>
-        <a href="#" className="block rounded-lg border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md">
+      <article className="group cursor-pointer" onClick={handleClick}>
+        <div className="block rounded-lg border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md">
           <div className="mb-3 flex items-center gap-3">
             <span className="font-mono text-sm font-medium text-primary">{num}</span>
             <span className="rounded bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">
@@ -56,15 +59,15 @@ export function NewsCard({ news, index = 0, variant = 'default' }: NewsCardProps
               </>
             )}
           </div>
-        </a>
+        </div>
       </article>
     );
   }
 
   if (variant === 'compact') {
     return (
-      <article className="animate-dev-up border-b border-border py-4 last:border-0" style={{ opacity: 0 }}>
-        <a href="#" className="group flex items-start gap-4">
+      <article className="border-b border-border py-4 last:border-0 cursor-pointer" onClick={handleClick}>
+        <div className="group flex items-start gap-4">
           <span className="shrink-0 font-mono text-sm font-medium text-muted-foreground">{num}</span>
           <div className="min-w-0 flex-1">
             <h3 className="font-medium text-foreground line-clamp-2 group-hover:text-primary transition-colors">
@@ -76,14 +79,14 @@ export function NewsCard({ news, index = 0, variant = 'default' }: NewsCardProps
               <span>{news.publishTime}</span>
             </div>
           </div>
-        </a>
+        </div>
       </article>
     );
   }
 
   return (
-    <article className="animate-dev-up" style={{ opacity: 0 }}>
-      <a href="#" className="group block rounded-lg border border-border bg-card p-5 shadow-sm transition-shadow hover:shadow-md">
+    <article className="cursor-pointer" onClick={handleClick}>
+      <div className="group block rounded-lg border border-border bg-card p-5 shadow-sm transition-shadow hover:shadow-md">
         <div className="flex items-start gap-4">
           <span className="shrink-0 font-mono text-sm font-medium text-primary">{num}</span>
           <div className="min-w-0 flex-1">
@@ -126,7 +129,7 @@ export function NewsCard({ news, index = 0, variant = 'default' }: NewsCardProps
             </div>
           </div>
         </div>
-      </a>
+      </div>
     </article>
   );
 }

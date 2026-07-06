@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const [account, setAccount] = useState("");
   const [password, setPassword] = useState("");
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -13,6 +15,7 @@ export default function LoginPage() {
       title: "登录成功",
       description: "欢迎进入系统",
     });
+    navigate("/");
   };
 
   return (
