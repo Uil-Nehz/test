@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
-import { Input, Textarea } from "@/components/ui/input";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { mockCommentList } from "@/data/mock-news";
 import type { CommentItem } from "@/types/comment";
