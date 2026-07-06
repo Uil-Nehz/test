@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* devportfolio 风格 — 极简专业浅色主题 */
+@layer base {
+  :root {
+    --bg: 0 0% 98%;
+    --bg-card: 0 0% 100%;
+    --fg: 0 0% 13%;
+    --fg-muted: 0 0% 40%;
+    --fg-subtle: 0 0% 55%;
+    --accent: 220 70% 50%;
+    --border: 0 0% 90%;
+    --radius: 6px;
+    --font-body: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-display: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --background: 0 0% 98%;
+    --foreground: 0 0% 13%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 13%;
+    --primary: 220 70% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 13%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent-shadcn: 0 0% 96%;
+    --accent-shadcn-foreground: 0 0% 13%;
+    --border-shadcn: 0 0% 90%;
+    --input: 0 0% 96%;
+    --ring: 220 70% 50%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-body);
+    background: hsl(var(--bg));
+    color: hsl(var(--fg));
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* 入场动画 */
+@keyframes dev-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-dev-up {
+  animation: dev-fade-up 0.5s ease-out forwards;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

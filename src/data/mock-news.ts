@@ -1,0 +1,81 @@
+import type { NewsItem } from '@/types/news';
+
+/**
+ * 模拟新闻数据 - 用于开发与演示
+ */
+export const MOCK_NEWS: NewsItem[] = [
+  {
+    id: '1',
+    title: '人工智能大模型应用加速落地，多行业迎来智能化升级',
+    summary: '随着技术的成熟，AI 大模型正在从实验室走向千行百业，医疗、教育、制造等领域正经历深刻变革。',
+    source: '科技日报',
+    publishTime: '10 分钟前',
+    category: '科技',
+    commentCount: 1280,
+    isTop: true,
+  },
+  {
+    id: '2',
+    title: '央行发布最新货币政策报告，稳健基调未变',
+    summary: '报告指出将保持流动性合理充裕，支持实体经济高质量发展。',
+    source: '财经频道',
+    publishTime: '25 分钟前',
+    category: '财经',
+    commentCount: 562,
+    isHot: true,
+  },
+  {
+    id: '3',
+    title: '春节档电影票房创新高，观影人次突破历史纪录',
+    summary: '多部优质影片同台竞技，带动电影市场全面复苏。',
+    source: '娱乐快讯',
+    publishTime: '1 小时前',
+    category: '娱乐',
+    commentCount: 3200,
+  },
+  {
+    id: '4',
+    title: '世界游泳锦标赛开幕，中国选手首日斩获三金',
+    summary: '奥运冠军们状态出色，为即将到来的巴黎奥运会预热。',
+    source: '体育频道',
+    publishTime: '2 小时前',
+    category: '体育',
+    commentCount: 890,
+  },
+  {
+    id: '5',
+    title: '联合国气候大会达成新共识，各国承诺加速减排',
+    summary: '与会各方就资金支持与技术转让达成重要协议。',
+    source: '国际新闻',
+    publishTime: '3 小时前',
+    category: '国际',
+    commentCount: 156,
+  },
+  {
+    id: '6',
+    title: '新能源汽车销量持续增长，充电网络加速布局',
+    summary: '政策支持与技术进步共同推动绿色出行普及。',
+    source: '汽车周刊',
+    publishTime: '4 小时前',
+    category: '科技',
+    commentCount: 420,
+  },
+  {
+    id: '7',
+    title: '国产操作系统生态建设取得新进展',
+    summary: '多家软件厂商宣布适配，应用生态逐步完善。',
+    source: '科技观察',
+    publishTime: '5 小时前',
+    category: '科技',
+    commentCount: 890,
+  },
+  {
+    id: '8',
+    title: '文旅消费持续升温，春节假期数据亮眼',
+    summary: '各地景区人气火爆，带动周边产业复苏。',
+    source: '经济参考',
+    publishTime: '6 小时前',
+    category: '财经',
+    commentCount: 234,
+  },
+];
