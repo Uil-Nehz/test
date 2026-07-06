@@ -1,5 +1,6 @@
-export { CategoryTabs } from './CategoryTabs';
-export { NewsCard } from './NewsCard';
-export { NewsHeader } from './NewsHeader';
-export { NewsHero } from './NewsHero';
-export { NewsList } from './NewsList';
+export * from './CategoryTabs';
+export * from './NewsCard';
+export * from './NewsHeader';
+export * from './NewsHero';
+export * from './NewsList';
+export * from './CommentSection';

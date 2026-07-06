@@ -1,4 +1,5 @@
 import type NewsItem from "@/types/news";
+import type { CommentItem } from "@/types/comment";
 
 export const mockNewsList: NewsItem[] = [
   {
@@ -34,5 +35,29 @@ export const mockNewsList: NewsItem[] = [
 业内人士分析，未来AI辅助内容创作会成为标配，创作者可借助工具快速完成文案撰写、配图生成，大幅提升内容产出效率，媒体行业的生产模式将迎来全面升级。`,
     isTop: true,
     commentCount: 2041
+  }
+];
+
+export let mockCommentList: CommentItem[] = [
+  {
+    commentId: "c001",
+    newsId: "news_1002",
+    userName: "AI爱好者",
+    content: "轻量化AI工具确实大幅降低了使用门槛，普通从业者也能轻松上手。",
+    createTime: "2026-07-07 10:12"
+  },
+  {
+    commentId: "c002",
+    newsId: "news_1002",
+    userName: "产品从业者",
+    content: "人机协同是必然趋势，企业需要提前做好员工技能培训。",
+    createTime: "2026-07-07 10:35"
+  },
+  {
+    commentId: "c003",
+    newsId: "news_1001",
+    userName: "传媒从业者",
+    content: "AI生成内容会改变自媒体行业的生产节奏，机遇与挑战并存。",
+    createTime: "2026-07-07 15:10"
   }
 ];

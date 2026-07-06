@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { mockNewsList } from "@/data/mock-news";
 import type NewsItem from "@/types/news";
+import { CommentSection } from "@/components/news";
 
 export default function NewsDetail() {
   const { id } = useParams();
@@ -67,6 +68,8 @@ export default function NewsDetail() {
               刷新内容
             </Button>
           </div>
+          {/* 新增评论模块 */}
+          <CommentSection newsId={currentNews.id} />
         </CardContent>
       </Card>
     </div>
