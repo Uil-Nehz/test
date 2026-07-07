@@ -8,14 +8,39 @@ export default function LoginPage() {
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("登录表单数据：", { account, password });
-    toast({
-      title: "登录成功",
-      description: "欢迎进入系统",
-    });
-    navigate("/");
+    try {
+      const trimAccount = account.trim();
+      const trimPwd = password.trim();
+      // 表单非空校验
+      if (!trimAccount) {
+        toast({
+          title: "输入错误",
+          description: "请填写账号",
+        });
+        return;
+      }
+      if (!trimPwd) {
+        toast({
+          title: "输入错误",
+          description: "请填写密码",
+        });
+        return;
+      }
+      console.log("登录表单数据：", { account: trimAccount, password: trimPwd });
+      toast({
+        title: "登录成功",
+        description: "欢迎进入系统",
+      });
+      navigate("/");
+    } catch (err) {
+      console.error("登录执行异常：", err);
+      toast({
+        title: "登录失败",
+        description: "操作出现异常，请稍后重试",
+      });
+    }
   };
 
   return (
