@@ -9,7 +9,7 @@ export function HomePage() {
   const filteredNews = useMemo(() => {
     if (category === '推荐') return mockNewsList;
     return mockNewsList.filter((n) => n.category === category);
-  }, [category, mockNewsList]);
+  }, [category]);
 
   const [heroNews, ...restNews] = filteredNews;
 

@@ -24,22 +24,27 @@
     --radius: 10px;
     --font-body: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --font-display: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    /* shadcn 深色适配变量 */
-    --background: hsl(var(--bg-dark));
-    --foreground: hsl(var(--fg-white));
-    --card: hsl(var(--bg-card));
-    --card-foreground: hsl(var(--fg-white));
-    --primary: hsl(var(--accent-blue));
-    --primary-foreground: hsl(0 0% 100%);
+
+    /*
+      shadcn/Tailwind 颜色变量必须保存 HSL 通道值。
+      tailwind.config.js 会使用 hsl(var(--background)) 等方式读取，
+      如果这里再写 hsl(...) 会生成 hsl(hsl(...))，导致颜色失效并出现白屏/白字问题。
+    */
+    --background: var(--bg-dark);
+    --foreground: var(--fg-white);
+    --card: var(--bg-card);
+    --card-foreground: var(--fg-white);
+    --primary: var(--accent-blue);
+    --primary-foreground: 0 0% 100%;
     --secondary: 223 40% 18%;
-    --secondary-foreground: hsl(var(--fg-white));
+    --secondary-foreground: var(--fg-white);
     --muted: 224 38% 16%;
-    --muted-foreground: hsl(var(--fg-muted));
-    --border: hsl(var(--bg-card-border));
+    --muted-foreground: var(--fg-muted);
+    --border: var(--bg-card-border);
     --input: 223 42% 16%;
-    --ring: hsl(var(--ring-glow));
+    --ring: var(--ring-glow);
     --destructive: 0 72% 51%;
-    --destructive-foreground: hsl(0 0% 100%);
+    --destructive-foreground: 0 0% 100%;
   }
 }
 
@@ -51,14 +56,19 @@
     scroll-behavior: smooth;
   }
   body {
+    margin: 0;
     font-family: var(--font-body);
     /* 全局径向蓝橙渐变背景 匹配参考图 */
-    background: radial-gradient(circle at 20% 10%, hsl(var(--grad-blue), 0.22), transparent 45%),
-                radial-gradient(circle at 85% 75%, hsl(var(--grad-orange), 0.18), transparent 50%),
-                hsl(var(--bg-dark));
-    color: hsl(var(--fg-white));
+    background:
+      radial-gradient(circle at 20% 10%, hsl(var(--grad-blue) / 0.22), transparent 45%),
+      radial-gradient(circle at 85% 75%, hsl(var(--grad-orange) / 0.18), transparent 50%),
+      hsl(var(--bg-dark));
+    color: hsl(var(--foreground));
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
+  }
+  #root {
+    min-height: 100vh;
   }
 }
 
