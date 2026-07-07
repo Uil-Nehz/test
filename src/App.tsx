@@ -19,12 +19,23 @@ class ErrorBoundary extends Component<{ fallback: ReactNode; children: ReactNode
 }
 
 const LoginPage = lazy(() => import('@/pages/login'));
-const NewsDetail = lazy(() => import('@/pages/NewsDetail'));
 
-// 懒加载失败兜底页面
+// 懒加载失败兜底页面，统一全站玻璃卡片视觉
 const lazyErrorFallback = (
-  <div className="flex items-center justify-center min-h-screen text-foreground">
-    页面加载失败，请刷新重试
+  <div className="flex items-center justify-center min-h-screen text-foreground animate-fade-up">
+    <div className="p-8 rounded-xl border glass-primary shadow-lg">
+      <h2 className="text-xl text-gradient mb-3">页面加载失败</h2>
+      <p className="text-muted-foreground">请刷新页面重试</p>
+    </div>
+  </div>
+);
+
+// 全局加载兜底页面，统一视觉风格
+const pageLoadingFallback = (
+  <div className="flex items-center justify-center min-h-screen text-foreground animate-fade-up">
+    <div className="p-8 rounded-xl border glass-primary shadow-lg animate-glow-pulse">
+      <p className="text-gradient text-lg">页面加载中...</p>
+    </div>
   </div>
 );
 
@@ -32,17 +43,12 @@ function App() {
   return (
     <Router>
       <Toaster />
-      <Suspense fallback={<div className="flex items-center justify-center min-h-screen text-foreground">加载中...</div>}>
+      <Suspense fallback={pageLoadingFallback}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={
             <ErrorBoundary fallback={lazyErrorFallback}>
               <LoginPage />
-            </ErrorBoundary>
-          } />
-          <Route path="/news/:id" element={
-            <ErrorBoundary fallback={lazyErrorFallback}>
-              <NewsDetail />
             </ErrorBoundary>
           } />
         </Routes>
