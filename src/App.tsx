@@ -22,7 +22,7 @@ const LoginPage = lazy(() => import('@/pages/login'));
 
 // 懒加载失败兜底页面，统一全站玻璃卡片视觉
 const lazyErrorFallback = (
-  <div className="flex items-center justify-center min-h-screen text-foreground animate-fade-up">
+  <div className="flex items-center justify-center min-h-screen text-foreground animate-dev-up">
     <div className="p-8 rounded-xl border glass-primary shadow-lg">
       <h2 className="text-xl text-gradient mb-3">页面加载失败</h2>
       <p className="text-muted-foreground">请刷新页面重试</p>
@@ -32,7 +32,7 @@ const lazyErrorFallback = (
 
 // 全局加载兜底页面，统一视觉风格
 const pageLoadingFallback = (
-  <div className="flex items-center justify-center min-h-screen text-foreground animate-fade-up">
+  <div className="flex items-center justify-center min-h-screen text-foreground animate-dev-up">
     <div className="p-8 rounded-xl border glass-primary shadow-lg animate-glow-pulse">
       <p className="text-gradient text-lg">页面加载中...</p>
     </div>

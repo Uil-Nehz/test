@@ -19,7 +19,7 @@ module.exports = {
           bg: "hsl(0 0% 6%)",
           "bg-elevated": "hsl(0 0% 9%)",
         },
-        border: "hsl(var(--border-shadcn))",
+        border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
@@ -41,8 +41,8 @@ module.exports = {
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent-shadcn))",
-          foreground: "hsl(var(--accent-shadcn-foreground))",
+          DEFAULT: "hsl(var(--accent-blue))",
+          foreground: "hsl(var(--fg-white))",
         },
         popover: {
           DEFAULT: "hsl(var(--card))",

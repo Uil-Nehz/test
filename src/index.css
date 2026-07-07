@@ -77,6 +77,15 @@
   animation: dev-fade-up 0.5s ease-out forwards;
 }
 
+/* 霓虹脉冲发光动画 */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 12px hsl(var(--ring-glow)); }
+  50% { box-shadow: 0 0 24px hsl(var(--ring-glow)); }
+}
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
 /* 霓虹发光按钮工具类 + 图文尺寸测试工具类 */
 @layer utilities {
   .btn-glow {
@@ -85,6 +94,12 @@
   .card-glass {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+  }
+  .glass-primary {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: hsl(var(--bg-card));
+    border: 1px solid hsl(var(--bg-card-border));
   }
   /* 修复渐变文字：增加白色兜底，避免透明文字完全消失 */
   .text-gradient {

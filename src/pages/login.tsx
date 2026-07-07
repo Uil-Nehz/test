@@ -53,7 +53,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="w-full max-w-sm p-8 rounded-xl border border-border bg-card shadow-lg card-glass animate-fade-up">
+      <div className="w-full max-w-sm p-8 rounded-xl border border-border bg-card shadow-lg card-glass animate-dev-up">
         <h1 className="text-2xl font-bold text-center mb-8 text-gradient">系统用户登录</h1>
         <form onSubmit={handleLogin} className="space-y-6">
           <div className="flex flex-col gap-2">
