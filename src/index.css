@@ -2,26 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 深色科技霓虹主题 — 匹配参考UI蓝橙渐变大气风格 */
+/* 深色科技霓虹主题 — 蓝橙渐变资讯门户风格 */
 @layer base {
   :root {
     /* 深色全局底色 */
-    --bg-dark: 225 60% 8%;
+    --bg-dark: 226 64% 7%;
     /* 径向渐变主色 深蓝+暖橙 */
-    --grad-blue: 220 85% 55%;
-    --grad-orange: 30 90% 50%;
+    --grad-blue: 218 88% 58%;
+    --grad-orange: 28 92% 54%;
     /* 半透明磨砂卡片 */
-    --bg-card: 226 45% 14% / 0.7;
-    --bg-card-border: 223 35% 28% / 0.6;
+    --bg-card: 225 48% 13% / 0.74;
+    --bg-card-border: 220 36% 34% / 0.62;
     /* 文字色系 提升明度保证深色下可见 */
     --fg-white: 0 0% 100%;
-    --fg-muted: 220 20% 82%;
-    --fg-subtle: 222 15% 70%;
+    --fg-muted: 220 22% 84%;
+    --fg-subtle: 222 17% 70%;
     /* 霓虹强调色 */
-    --accent-blue: 220 80% 60%;
-    --accent-orange: 32 88% 52%;
-    --ring-glow: 220 85% 55% / 0.35;
-    --radius: 10px;
+    --accent-blue: 218 88% 62%;
+    --accent-orange: 30 92% 56%;
+    --ring-glow: 218 88% 58% / 0.36;
+    --radius: 14px;
     --font-body: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --font-display: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
@@ -36,12 +36,12 @@
     --card-foreground: var(--fg-white);
     --primary: var(--accent-blue);
     --primary-foreground: 0 0% 100%;
-    --secondary: 223 40% 18%;
+    --secondary: 223 42% 19%;
     --secondary-foreground: var(--fg-white);
-    --muted: 224 38% 16%;
+    --muted: 224 42% 17%;
     --muted-foreground: var(--fg-muted);
     --border: var(--bg-card-border);
-    --input: 223 42% 16%;
+    --input: 223 42% 17%;
     --ring: var(--ring-glow);
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
@@ -58,14 +58,26 @@
   body {
     margin: 0;
     font-family: var(--font-body);
-    /* 全局径向蓝橙渐变背景 匹配参考图 */
     background:
-      radial-gradient(circle at 20% 10%, hsl(var(--grad-blue) / 0.22), transparent 45%),
-      radial-gradient(circle at 85% 75%, hsl(var(--grad-orange) / 0.18), transparent 50%),
-      hsl(var(--bg-dark));
+      radial-gradient(circle at 12% 8%, hsl(var(--grad-blue) / 0.28), transparent 34%),
+      radial-gradient(circle at 88% 18%, hsl(var(--grad-orange) / 0.16), transparent 32%),
+      radial-gradient(circle at 48% 92%, hsl(var(--grad-blue) / 0.16), transparent 40%),
+      linear-gradient(180deg, hsl(226 66% 8%), hsl(var(--bg-dark)) 42%, hsl(228 68% 6%));
     color: hsl(var(--foreground));
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    content: "";
+    background-image:
+      linear-gradient(hsl(var(--fg-white) / 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--fg-white) / 0.035) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(to bottom, black, transparent 78%);
   }
   #root {
     min-height: 100vh;
@@ -99,24 +111,32 @@
 /* 霓虹发光按钮工具类 + 图文尺寸测试工具类 */
 @layer utilities {
   .btn-glow {
-    box-shadow: 0 0 16px hsl(var(--ring-glow));
+    box-shadow: 0 0 18px hsl(var(--ring-glow));
   }
   .card-glass {
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
   .glass-primary {
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    background: hsl(var(--bg-card));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background:
+      linear-gradient(135deg, hsl(var(--fg-white) / 0.08), hsl(var(--fg-white) / 0.025)),
+      hsl(var(--bg-card));
     border: 1px solid hsl(var(--bg-card-border));
   }
-  /* 修复渐变文字：增加白色兜底，避免透明文字完全消失 */
+  .surface-aurora {
+    background:
+      radial-gradient(circle at 18% 20%, hsl(var(--accent-blue) / 0.24), transparent 34%),
+      radial-gradient(circle at 86% 8%, hsl(var(--accent-orange) / 0.18), transparent 30%),
+      linear-gradient(135deg, hsl(var(--card)), hsl(226 52% 10% / 0.84));
+  }
   .text-gradient {
     color: hsl(var(--fg-white));
     background: linear-gradient(90deg, hsl(var(--accent-blue)), hsl(var(--accent-orange)));
     -webkit-background-clip: text;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   /* 图文卡片尺寸测试工具类 */
   .card-size-sm {

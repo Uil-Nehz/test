@@ -1,6 +1,7 @@
 import { lazy, Suspense, Component, ReactNode } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HomePage } from '@/pages';
+import { NewsDetailPage } from '@/pages/NewsDetailPage';
 import { Toaster } from '@/components/ui/toaster';
 
 // 全局错误边界组件：避免页面运行时报错后直接白屏
@@ -62,6 +63,7 @@ function App() {
           <Suspense fallback={pageLoadingFallback}>
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/news/:id" element={<NewsDetailPage />} />
               <Route
                 path="/login"
                 element={
