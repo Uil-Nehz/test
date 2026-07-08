@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -7,7 +8,19 @@ import { Flame, MessageCircle, Pin } from 'lucide-react';
 
 export function NewsDetailPage() {
   const { id } = useParams();
+  const [showSimilarNews, setShowSimilarNews] = useState(false);
   const news = mockNewsList.find((item) => item.id === id);
+
+  const similarNews = news
+    ? mockNewsList
+        .filter((item) => item.id !== news.id)
+        .sort((a, b) => {
+          const aSameCategory = a.category === news.category ? 0 : 1;
+          const bSameCategory = b.category === news.category ? 0 : 1;
+          return aSameCategory - bSameCategory;
+        })
+        .slice(0, 6)
+    : [];
 
   if (!news) {
     return (
@@ -97,6 +110,68 @@ export function NewsDetailPage() {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
+
+            <div className="mt-8 flex justify-center border-t border-border/70 pt-7">
+              <Button
+                type="button"
+                variant="secondary"
+                className="rounded-full border border-border bg-secondary/70"
+                onClick={() => setShowSimilarNews((visible) => !visible)}
+              >
+                {showSimilarNews ? '收起相似新闻' : '查看相似新闻'}
+              </Button>
+            </div>
+
+            {showSimilarNews && (
+              <section className="mt-7 border-t border-border/70 pt-7">
+                <div className="mb-4 flex items-center justify-between gap-4">
+                  <h2 className="text-xl font-bold text-foreground">相似新闻</h2>
+                  <span className="text-sm text-muted-foreground">{similarNews.length} 条</span>
+                </div>
+
+                {similarNews.length > 0 ? (
+                  <div className="-mx-6 overflow-x-auto px-6 pb-2 md:-mx-9 md:px-9">
+                    <div className="flex min-w-full gap-4">
+                      {similarNews.map((item) => (
+                        <Link
+                          key={item.id}
+                          to={`/news/${item.id}`}
+                          className="group w-64 shrink-0 overflow-hidden rounded-2xl border border-border bg-muted/30 transition-all hover:-translate-y-0.5 hover:border-primary/45 hover:bg-muted/45"
+                        >
+                          {item.coverImg && (
+                            <img
+                              src={item.coverImg}
+                              alt={item.title}
+                              className="h-32 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                          )}
+                          <div className="p-4">
+                            <div className="mb-2 flex items-center gap-2 text-xs text-muted-foreground">
+                              <span className="rounded-full bg-primary/10 px-2 py-0.5 text-primary">
+                                {item.category}
+                              </span>
+                              <span>{item.publishTime}</span>
+                            </div>
+                            <h3 className="line-clamp-2 text-sm font-bold leading-6 text-foreground transition-colors group-hover:text-primary">
+                              {item.title}
+                            </h3>
+                            {item.summary && (
+                              <p className="mt-2 line-clamp-2 text-xs leading-5 text-muted-foreground">
+                                {item.summary}
+                              </p>
+                            )}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <p className="rounded-2xl border border-border bg-muted/30 p-5 text-sm text-muted-foreground">
+                    暂无相似新闻
+                  </p>
+                )}
+              </section>
+            )}
 
             <CommentSection newsId={news.id} />
           </div>
