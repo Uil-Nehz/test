@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { CommentSection } from '@/components/news';
 import { mockNewsList } from '@/data/mock-news';
 import { Flame, MessageCircle, Pin } from 'lucide-react';
 
