@@ -40,7 +40,7 @@ export function CommentSection({ newsId }: CommentSectionProps) {
       content: trimContent,
       createTime: new Date().toLocaleString().replaceAll("/", "-")
     };
-    mockCommentList.unshift(newComment);
+    setComments(prevComments => [newComment, ...prevComments]);
     setUserName("");
     setContent("");
     toast({ title: "成功", description: "评论发布完成" });
