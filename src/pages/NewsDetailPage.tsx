@@ -97,6 +97,8 @@ export function NewsDetailPage() {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
+
+            <CommentSection newsId={news.id} />
           </div>
         </article>
       </main>
