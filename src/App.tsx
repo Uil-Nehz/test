@@ -73,6 +73,14 @@ function App() {
                   </ErrorBoundary>
                 }
               />
+              <Route
+                path="/id-card-upload"
+                element={
+                  <ErrorBoundary fallback={lazyErrorFallback}>
+                    <IdCardUploadPage />
+                  </ErrorBoundary>
+                }
+              />
             </Routes>
           </Suspense>
         </ErrorBoundary>
