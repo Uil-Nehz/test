@@ -31,7 +31,11 @@ export function CommentSection({ newsId }: CommentSectionProps) {
   const { toast } = useToast();
   const [userName, setUserName] = useState("");
   const [content, setContent] = useState("");
-  const [comments, setComments] = useState<CommentItem[]>(mockCommentList);
+  const [comments, setComments] = useState<CommentItem[]>(getInitialComments);
+
+  useEffect(() => {
+    window.localStorage.setItem(COMMENT_STORAGE_KEY, JSON.stringify(comments));
+  }, [comments]);
 
   const targetComments = useMemo(() => {
     return comments.filter(item => item.newsId === newsId);
