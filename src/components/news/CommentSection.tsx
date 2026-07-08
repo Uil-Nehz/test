@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { mockCommentList } from "@/data/mock-news";
 import type { CommentItem } from "@/types/comment";
 import { useToast } from "@/hooks/use-toast";
+import { Send } from "lucide-react";
 
 interface CommentSectionProps {
   newsId: string;
