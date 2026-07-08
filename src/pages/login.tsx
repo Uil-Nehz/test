@@ -11,6 +11,7 @@ const highlights = [
   '智能推荐你的兴趣内容',
   '实时追踪热点新闻动态',
   '收藏与同步多端阅读记录',
+  "ceshi pr"
 ];
 
 function LoginPage() {
