@@ -13,7 +13,7 @@ const highlights = [
 ];
 
 function LoginPage() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
 
