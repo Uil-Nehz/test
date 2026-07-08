@@ -15,11 +15,11 @@ export function CommentSection({ newsId }: CommentSectionProps) {
   const { toast } = useToast();
   const [userName, setUserName] = useState("");
   const [content, setContent] = useState("");
+  const [comments, setComments] = useState<CommentItem[]>(mockCommentList);
 
-  // 筛选当前新闻评论
   const targetComments = useMemo(() => {
-    return mockCommentList.filter(item => item.newsId === newsId);
-  }, [newsId]);
+    return comments.filter(item => item.newsId === newsId);
+  }, [comments, newsId]);
 
   // 发布评论
   const handleSubmit = () => {
