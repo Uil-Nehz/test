@@ -22,6 +22,7 @@ class ErrorBoundary extends Component<{ fallback: ReactNode; children: ReactNode
 }
 
 const LoginPage = lazy(() => import('@/pages/login'));
+const IdCardUploadPage = lazy(() => import('@/pages/IdCardUploadPage'));
 
 // 懒加载失败兜底页面，统一全站玻璃卡片视觉
 const lazyErrorFallback = (
