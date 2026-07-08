@@ -7,6 +7,22 @@ import type { CommentItem } from "@/types/comment";
 import { useToast } from "@/hooks/use-toast";
 import { Send } from "lucide-react";
 
+const COMMENT_STORAGE_KEY = "today-news-comments";
+
+function getInitialComments() {
+  if (typeof window === "undefined") return mockCommentList;
+
+  try {
+    const savedComments = window.localStorage.getItem(COMMENT_STORAGE_KEY);
+    if (!savedComments) return mockCommentList;
+
+    const parsedComments = JSON.parse(savedComments);
+    return Array.isArray(parsedComments) ? parsedComments as CommentItem[] : mockCommentList;
+  } catch {
+    return mockCommentList;
+  }
+}
+
 interface CommentSectionProps {
   newsId: string;
 }
