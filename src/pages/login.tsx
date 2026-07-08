@@ -1,3 +1,4 @@
+import type { FormEvent } from 'react';
 import { BookOpenText, CheckCircle2, Eye, LockKeyhole, Mail, Newspaper, Sparkles, TrendingUp } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
